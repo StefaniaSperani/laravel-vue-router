@@ -23,9 +23,9 @@ export default {
     },
     methods: {
         getproject() {
-            console.log(this.$route);
+            // console.log(this.$route);
             axios.get(`${this.store.apiBaseUrl}/projects/${this.$route.params.slug}`).then((response) => {
-                console.log(response.data.results);
+                // console.log(response.data.results);
                 if (response.data.success) {
                     //console.log(response.data.results);
                     this.project = response.data.results;
