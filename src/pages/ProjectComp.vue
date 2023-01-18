@@ -3,7 +3,7 @@
         <h1>{{ project.title }}</h1>
         <img :src="`${store.imagBasePath}${project.cover_image}`" class="card-img-top" :alt="project.title">
         <p>{{ project.content }}</p>
-        <div v-if="project.category">
+        <div v-if="project.type">
             <h5>Type: {{ project.type.name }}</h5>
         </div>
     </section>
@@ -22,13 +22,13 @@ export default {
         }
     },
     methods: {
-        getproject() {
-            // console.log(this.$route);
-            axios.get(`${this.store.apiBaseUrl}/projects/${this.$route.params.slug}`).then((response) => {
-                // console.log(response.data.results);
-                if (response.data.success) {
+        getProject() {
+            console.log(this.$route);
+            axios.get(`${this.store.apiBaseUrl}/projects/${this.$route.params.slug}`).then((res) => {
+                console.log(res.data.results);
+                if (res.data.success) {
                     //console.log(response.data.results);
-                    this.project = response.data.results;
+                    this.project = res.data.results;
                 } else {
                     //console.log(this.$router);
                     this.$router.push({ name: 'not-found' });
@@ -38,7 +38,7 @@ export default {
         }
     },
     mounted() {
-        this.getproject();
+        this.getProject();
     }
 
 }

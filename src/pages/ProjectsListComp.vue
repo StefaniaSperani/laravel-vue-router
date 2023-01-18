@@ -2,8 +2,6 @@
     <section>
         <h1>Lista dei projects</h1>
         <div class="row">
-            <!-- <ProjectCard></ProjectCard> -->
-
             <div class="col-12 col-md-4" v-for="(project, index) in projects" :key="index">
                 <div class="card bg-transparent" style="width: 18rem;">
                     <img :src="`${store.imagBasePath}${project.cover_image}`" class="card-img-top" :alt="project.title">
@@ -28,13 +26,10 @@
 </template>
 
 <script>
-// import ProjectCard from '../components/ProjectCard.vue';
 import axios from 'axios';
 import { store } from '../store';
 export default {
     name: 'ProjectsList',
-    // components:
-    //     ProjectCard,
     data() {
         return {
             store,
