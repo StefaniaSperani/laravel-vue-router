@@ -66,7 +66,7 @@ export default {
                 email: this.email,
                 message: this.message
             }
-            console.log(this.store.apiBaseUrl)
+            //console.log(this.store.apiBaseUrl)
             axios.post(`${this.store.apiBaseUrl}/contact`, data).then((response) => {
                 // console.log(response.data);
                 this.success = response.data.success;
